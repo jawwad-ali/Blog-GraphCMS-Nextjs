@@ -1,17 +1,44 @@
-type PostType = {
+type Author = {
+  author: string;
+  photo: {
+    url: string;
+  };
+};
+
+// type PostType = {
+//   featuredImage: { url: string };
+//   title: string;
+//   slug: string;
+//   createdAt: string;
+//   excerpt: string;
+//   author: Author;
+// };
+
+export interface Post { 
   featuredImage: { url: string };
   title: string;
   slug: string;
-  author: {
-    author: string;
-    photo: {
-      url: string;
-    }; 
-  };
   createdAt: string;
   excerpt: string;
-};
+  author: Author;
+}
 
-export interface Post {
-  post: PostType;
+/**** POST WIDGET ******/
+export interface PostWidget {
+  categories: string[];
+  slug: string;
+}
+
+// Related Post
+export interface RelatedPost {
+  title: string;
+  featuredImage: { url: string };
+  createdAt: string;
+  slug: string;
+}
+
+// Category
+export interface Category {
+  name: string;
+  slug: string;
 }

@@ -15,8 +15,8 @@ function PostCard({ post }: Post) {
       </div> 
       <h1 className="transition duration-300 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
         <Link href={`/post/${post.slug}`}>
-          {post.title}
-        </Link>
+          {post.title} 
+        </Link> 
       </h1>
 
       <div className="block lg:flex text-center items-center justify-center w-full">

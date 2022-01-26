@@ -1,12 +1,12 @@
-type Author = {
-  author: string;
-  photo: {
+export type Author = {
+  author: string; 
+  photo: { 
     url: string;
   };
 };
 
 export interface Post { 
-  featuredImage: { url: string };
+  featuredImage: { url: string }; 
   title: string;
   slug: string;
   createdAt: string;

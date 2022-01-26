@@ -22,9 +22,7 @@ export default function Home({ posts }) {
     </div>
   )
 }
-// 1.36.15
-// 1.52.58
-
+// 2.07.46
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
 

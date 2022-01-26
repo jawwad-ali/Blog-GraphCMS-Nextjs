@@ -5,15 +5,6 @@ type Author = {
   };
 };
 
-// type PostType = {
-//   featuredImage: { url: string };
-//   title: string;
-//   slug: string;
-//   createdAt: string;
-//   excerpt: string;
-//   author: Author;
-// };
-
 export interface Post { 
   featuredImage: { url: string };
   title: string;

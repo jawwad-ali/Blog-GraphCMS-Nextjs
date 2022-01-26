@@ -3,7 +3,6 @@ import { Categories, PostCard, PostWidgets } from "../components"
 import { getPosts } from "../services"
 
 export default function Home({ posts }) {
-  console.log(posts)
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>Next Js Blog Application</Head>
@@ -24,6 +23,7 @@ export default function Home({ posts }) {
   )
 }
 // 1.36.15
+// 1.52.58
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || []

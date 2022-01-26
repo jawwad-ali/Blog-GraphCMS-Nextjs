@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getCategories } from "../../services"
 import { Category } from "../PostCard/type"
 
-function Categories() {
+function Categories() { 
     const [categories, setCategories] = useState<Category[]>([])
 
     useEffect(() => {

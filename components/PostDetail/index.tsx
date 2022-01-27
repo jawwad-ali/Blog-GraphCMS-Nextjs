@@ -4,7 +4,7 @@ import { Post } from "../PostCard/type"
 
 function PostDetail({ post }: Post) {
 
-    const getContentFragment = (index, text, obj, type) => {
+    const getContentFragment = (index, text, obj, type) => { 
         let modifiedText = text;
 
         if (obj) {
@@ -81,7 +81,7 @@ function PostDetail({ post }: Post) {
                 })}
             </div>
         </div>
-    )
+    ) 
 }
 
 export default PostDetail;

@@ -1,10 +1,10 @@
 export type Author = {
   author: string; 
   photo: { 
-    url: string;
+    url: string;   
   };
 };
-
+   
 export interface Post { 
   featuredImage: { url: string }; 
   title: string;

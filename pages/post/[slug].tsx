@@ -3,9 +3,9 @@ import { PostDetail, Categories, PostWidgets, Author, Comments, CommentForm, Loa
 import { Post } from "../../components/PostCard/type"
 import { useRouter } from "next/router";
 
-const PostDetails = ({ post }: Post) => {
+const PostDetails = ({ post }) => {
     const router = useRouter()
- 
+
     if (router.isFallback) {
         return <Loader />
     }

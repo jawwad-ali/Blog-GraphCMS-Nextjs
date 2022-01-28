@@ -1,16 +1,23 @@
 import { getPosts, getPostDetails } from "../../services"
 import { PostDetail, Categories, PostWidgets, Author, Comments, CommentForm, Loader } from "../../components"
 import { Post } from "../../components/PostCard/type"
+import { useRouter } from "next/router";
 
 const PostDetails = ({ post }: Post) => {
+    const router = useRouter()
+ 
+    if (router.isFallback) {
+        return <Loader />
+    }
+
     return (
         <div className="container mx-auto px-10 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div className="col-span-1 lg:col-span-8"> 
-                    <PostDetail post={post} /> 
-                    <Author author={post.author} />  
+                <div className="col-span-1 lg:col-span-8">
+                    <PostDetail post={post} />
+                    <Author author={post.author} />
                     <CommentForm slug={post.slug} />
-                    {/*<Comments slug={post.slug} /> */}
+                    <Comments slug={post.slug} />
                 </div>
                 <div className="col-span-1 lg:col-span-4">
                     <div className="lg:sticky top-8 relative">

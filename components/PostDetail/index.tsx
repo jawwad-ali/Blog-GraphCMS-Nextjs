@@ -5,7 +5,7 @@ import { Post } from "../PostCard/type"
 function PostDetail({ post }: Post) {
 
     const getContentFragment = (index, text, obj, type) => { 
-        let modifiedText = text;
+        let modifiedText = text; 
 
         if (obj) {
             if (obj.bold) {
@@ -72,7 +72,7 @@ function PostDetail({ post }: Post) {
                         <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
                     </div>
                 </div>
-                <h1 className="font-semibold text-3xl mb-8">
+                <h1 className="font-semibold text-3xl mb-8"> 
                     {post.title}
                 </h1>
                 {post.content.raw.children.map((typeObj, index) => {

@@ -1,11 +1,9 @@
 import moment from 'moment';
 import React from 'react';
-import { Post } from "../PostCard/type"
 
-function PostDetail({ post }: Post) {
-
-    const getContentFragment = (index, text, obj, type) => { 
-        let modifiedText = text; 
+function PostDetail({ post }) {
+    const getContentFragment = (index, text, obj, type) => {
+        let modifiedText = text;
 
         if (obj) {
             if (obj.bold) {
@@ -39,7 +37,7 @@ function PostDetail({ post }: Post) {
                     />
                 );
             default:
-                return modifiedText; 
+                return modifiedText;
         }
     };
 
@@ -72,16 +70,16 @@ function PostDetail({ post }: Post) {
                         <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
                     </div>
                 </div>
-                <h1 className="font-semibold text-3xl mb-8"> 
+                <h1 className="font-semibold text-3xl mb-8">
                     {post.title}
                 </h1>
                 {post.content.raw.children.map((typeObj, index) => {
-                    const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item))
+                    const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                     return getContentFragment(index, children, typeObj, typeObj.type)
                 })}
             </div>
-        </div>
-    ) 
+        </div> 
+    )
 }
 
 export default PostDetail;

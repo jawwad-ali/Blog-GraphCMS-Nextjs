@@ -1,12 +1,11 @@
 export type Author = {
-  author: string; 
-  photo: { 
-    url: string;   
-  };
-};
-   
-export interface Post { 
-  featuredImage: { url: string }; 
+  author: string;
+  photo: { url: string };
+  bio: string;
+}; 
+
+export interface Post {
+  featuredImage: { url: string };
   title: string;
   slug: string;
   createdAt: string;

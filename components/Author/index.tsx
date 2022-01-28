@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import { Author } from "../PostCard/type"
 
-function Author({ author }: Author) {
+function Author({ author }) {
   return (
     <div className='text-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20'>
       <div className='absolute left-5 right-0 -top-14'>
@@ -18,7 +17,6 @@ function Author({ author }: Author) {
       <h3 className='text-white my-4 font-bold'>{author.author}</h3>
       <h3 className='text-white text-lg'>{author.bio}</h3>
     </div>
-
   )
 }
 

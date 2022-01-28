@@ -3,13 +3,13 @@ import { Categories, PostCard, PostWidgets } from "../components"
 import { getPosts } from "../services"
 
 export default function Home({ posts }) {
-  return ( 
+  return (
     <div className="container mx-auto px-10 mb-8">
-      <Head>Next Js Blog Application</Head>  
+      <Head>Next Js Blog Application</Head>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
-          {posts.map((post: any) => <PostCard post={post.node} />)} 
+          {posts.map((post: any) => <PostCard post={post.node} />)}
         </div>
 
         <div className="lg:col-span-4 col-span-1">
@@ -18,13 +18,13 @@ export default function Home({ posts }) {
             <Categories />
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   )
 }
 
-// 2.07.46
 // 2.29.19 
+// 2.47.37
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || []

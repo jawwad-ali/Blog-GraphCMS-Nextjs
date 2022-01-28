@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useRef, useState } from 'react';
+import { submitComment } from "../../services"
 
-function CommentForm({ slug }: string) {
+function CommentForm({ slug }: string) { 
     const [error, setError] = useState<boolean>(false)
     const [localStorage, setLocalStorage] = useState<string | null>(null)
     const [showSuccessMessage, setShowSuccessMessages] = useState<boolean>(false)
@@ -9,6 +11,12 @@ function CommentForm({ slug }: string) {
     const nameEl = useRef<HTMLInputElement | null>()
     const emailEl = useRef<HTMLInputElement | null>()
     const storeDataEl = useRef<HTMLInputElement | null>()
+
+    // Get Data from localStorage if user checked the checkbox down below
+    useEffect(() => {
+        nameEl.current.value = window.localStorage.getItem("name")
+        emailEl.current.value = window.localStorage.getItem("email")
+    }, [])
 
     // Comment submission function
     const handleCommentSubmission = () => {
@@ -25,14 +33,22 @@ function CommentForm({ slug }: string) {
         const commentObj = { name, comment, email, slug }
 
         if (storeData) {
-            localStorage.setItem("name", name)
-            localStorage.setItem("email", email)
+            window.localStorage.setItem("name", name)
+            window.localStorage.setItem("email", email)
         }
         else {
-            localStorage.removeItem("name", name)
-            localStorage.removeItem("email", email)
+            window.localStorage.removeItem("name")
+            window.localStorage.removeItem("email")
         }
 
+        // firing the query to submit comment
+        submitComment(commentObj)
+            .then((res) => {
+                setShowSuccessMessages(true)
+                setTimeout(() => {
+                    setShowSuccessMessages(false)
+                }, 3000)
+            })
     }
 
     return (
@@ -69,16 +85,16 @@ function CommentForm({ slug }: string) {
                 </div>
             </div>
 
-            {error && <p className='text-red-700'>Something went wrong</p>}
             <div className="mt-8">
+                {showSuccessMessage && <p className="text-xl float-right font-semibold mt-3 text-green-500"> Comment submitted fo review </p>}
+
+                {error && <p className='text-red-700'>Something went wrong</p>}
+
                 <button onClick={handleCommentSubmission}
                     className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-white rounded-full text-xl px-8 py-3 cursor-pointer"
                 >
                     Post Comment
                 </button>
-                {showSuccessMessage && <p className="text-xl float-right font-semibold mt-3 text-green-500">
-                    Comment submitted fo review
-                </p>}
             </div>
         </div>
     )

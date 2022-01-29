@@ -5,7 +5,7 @@ function PostDetail({ post }) {
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text;
 
-        if (obj) {
+        if (obj) { 
             if (obj.bold) {
                 modifiedText = (<b key={index}>{text}</b>);
             }

@@ -8,7 +8,7 @@ function Author({ author }) {
         <Image 
           unoptimized
           src={author.photo.url}
-          alt={author.author}
+          alt={author.author} 
           className=" rounded-full"
           width="100px"
           height="100px"

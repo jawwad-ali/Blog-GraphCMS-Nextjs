@@ -10,7 +10,7 @@ function PostCard({ post }) {
           alt={post.title}
           className="object-top absolute h-80 w-full object-cover shadow-lg rounded-tr-lg lg:rounded-lg"
         />
-      </div>
+      </div> 
       <h1 className="transition duration-300 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
         <Link href={`/post/${post.slug}`}>
           {post.title}

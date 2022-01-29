@@ -76,10 +76,11 @@ function PostDetail({ post }) {
                 {post.content.raw.children.map((typeObj, index) => {
                     const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                     return getContentFragment(index, children, typeObj, typeObj.type)
+
                 })}
             </div>
-        </div> 
+        </div>
     )
 }
 
-export default PostDetail;
+export default PostDetail;  

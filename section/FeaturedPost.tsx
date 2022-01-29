@@ -10,6 +10,23 @@ interface CustomLeftArrowProps extends ArrowProps {
     myOwnStuff: string;
 }
 
+export interface ResponsiveType {
+    [key: string]: {
+        breakpoint: { max: number; min: number };
+        items: number;
+        partialVisibilityGutter?: number; // back-ward compatible, because previously there has been a typo
+        paritialVisibilityGutter?: number;
+        slidesToSlide?: number;
+    };
+}
+
+export interface CarouselProps { 
+    responsive: ResponsiveType;
+    customLeftArrow?: React.ReactElement<any> | null;
+    customRightArrow?: React.ReactElement<any> | null;
+    itemClass?: string; 
+}
+
 const responsive = {
     superLargeDesktop: {
         breakpoint: { max: 4000, min: 1024 },
@@ -49,7 +66,7 @@ const FeaturedPosts = () => {
         </div>
     )
 
-    const customRightArrow = ( 
+    const customRightArrow = (
         <div className="absolute arrow-btn right-0 text-center py-3 cursor-pointer bg-pink-600 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
